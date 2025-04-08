@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Quotes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lobster&family=Montserrat:wght@400;700&family=Pacifico&family=Dancing+Script:wght@400;700&family=Indie+Flower&family=Satisfy&family=Shadows+Into+Light&family=Quicksand:wght@400;700&family=Merriweather:wght@400;700&family=Archivo:wght@400;700&family=Josefin+Sans:wght@400;700&family=Comfortaa:wght@400;700&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Caveat&family=Abril+Fatface&family=Oswald:wght@400;700&family=Raleway:wght@400;700&family=Permanent+Marker&family=Amatic+SC:wght@400;700&family=Crimson+Text:wght@400;700&family=Lato:wght@400;700&family=Ubuntu:wght@400;700&family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&family=Nunito:wght@400;700&family=Fira+Sans:wght@400;700&family=Titillium+Web:wght@400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            transition: background 0.5s;
+        }
+
+        #quote {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            transition: color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="quote"></div>
+
+    <script>
+        const quotes = [
+            "Believe in yourself.",
+            "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+            "Dream big and dare to fail.",
+            "La vida es 10% lo que te ocurre y 90% cómo reaccionas a ello.",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "La motivación es lo que te pone en marcha, el hábito es lo que hace que sigas.",
+            "You are stronger than you think.",
+            "Haz de cada día tu obra maestra.",
+            "The only way to do great work is to love what you do.",
+            "El único modo de hacer un gran trabajo es amar lo que haces.",
+            "The best is yet to come.",
+            "Pequeños pasos llevan a grandes cambios.",
+            "Believe in your infinite potential.",
+            "Your only limit is you.",
+            "Dream big, work hard, stay focused.",
+            "The journey of a thousand miles begins with a single step.",
+            "You are capable of amazing things.",
+            "Let your dreams be bigger than your fears.",
+            "Happiness is an inside job.",
+            "Be the change you wish to see in the world.",
+            "The power of imagination makes us infinite.",
+            "Every moment is a fresh beginning.",
+            "The best view comes after the hardest climb.",
+            "Do what you love, love what you do.",
+            "Kindness is always fashionable.",
+            "You are the artist of your own life.",
+            "The sun shines after every storm.",
+            "Be fearless in the pursuit of what sets your soul on fire.",
+            "Small acts, when multiplied by millions of people, can transform the world.",
+            "Every day brings a chance to draw closer to your dreams.",
+            "Cree en tu potencial infinito.",
+            "Tu único límite eres tú.",
+            "Sueña en grande, trabaja duro, mantente enfocado.",
+            "Un viaje de mil millas comienza con un solo paso.",
+            "Eres capaz de cosas asombrosas.",
+            "Deja que tus sueños sean más grandes que tus miedos.",
+            "La felicidad es un trabajo interno.",
+            "Sé el cambio que deseas ver en el mundo.",
+            "El poder de la imaginación nos hace infinitos.",
+            "Cada momento es un nuevo comienzo.",
+            "La mejor vista viene después de la subida más difícil.",
+            "Haz lo que amas, ama lo que haces.",
+            "La amabilidad siempre está de moda.",
+            "Tú eres el artista de tu propia vida.",
+            "El sol brilla después de cada tormenta.",
+            "Sé valiente en la búsqueda de lo que enciende tu alma.",
+            "Pequeños actos, multiplicados por millones de personas, pueden transformar el mundo.",
+            "Cada día trae una oportunidad para acercarte a tus sueños.",
+            "Every day is a new beginning.",
+            "Sé la mejor versión de ti mismo.",
+            "Cree en ti mismo y todo será posible.",
+            "La mejor manera de predecir el futuro es crearlo.",
+            "The best is yet to come and will be better than anything you could ever imagine.",
+            "Your time is limited, don't waste it living someone else's life.",
+            "The only source of knowledge is experience.",
+            "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears.",
+            "The best way to gain self-confidence is to do what you are afraid to do.",
+            "What lies behind you and what lies in front of you, pales in comparison to what lies inside of you.",
+            "La mente es como el agua, cuando está turbulenta, es difícil ver. Cuando está en calma, todo está claro.",
+            "The secret of change is to focus all of your energy, not on fighting the old, but on building the new.",
+            "It's not about perfect. It's about effort.",
+            "You don't have to be great to start, but you have to start to be great.",
+            "Believe you can and you're halfway there.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "Strive for progress, not perfection.",
+            "Cada golpe me acerca más al siguiente jonrón.",
+            "You are never too young to set another goal or to dream a new dream.",
+            "It always seems impossible until it's done.",
+            "With the new day comes new strength and new thoughts.",
+            "El único límite para nuestra realización del mañana serán nuestras dudas de hoy.",
+            "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+            "The mind is everything. What you think you become.",
+            "Life is like riding a bicycle. To keep your balance, you must keep moving.",
+            "Don't watch the clock; do what it does. Keep going.",
+            "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+            "It is during our darkest moments that we must focus to see the light.",
+            "Start where you are. Use what you have. Do what you can.",
+            "The secret of getting ahead is getting started.",
+            "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
+            "Mantén tus ojos en las estrellas y tus pies en el suelo.",
+            "The sun himself is weak when he first rises, and gathers strength and courage as the day gets on.",
+            "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+            "Go confidently in the direction of your dreams. Live the life you've imagined.",
+            "Whatever the mind of man can conceive and believe, it can achieve.",
+            "It's not whether you get knocked down, it's whether you get up.",
+            "Lucha por el progreso, no por la perfección.",
+            "Cada strike me acerca más al próximo jonrón.",
+            "No mires el reloj; haz lo que hace él. Sigue adelante.",
+            "Las cosas mejores y más bellas del mundo no pueden verse ni tocarse, deben sentirse con el corazón.",
+            "Es durante nuestros momentos más oscuros cuando debemos centrarnos para ver la luz.",
+            "Empieza donde estás. Usa lo que tienes. Haz lo que puedas.",
+            "El secreto para salir adelante es empezar.",
+            "No puedo cambiar la dirección del viento, pero puedo ajustar mis velas para llegar siempre a mi destino.",
+            "Nunca es demasiado tarde para ser lo que podrías haber sido.",
+            "Cree que puedes y ya estás a mitad de camino.",
+            "El futuro pertenece a aquellos que creen en la belleza de sus sueños.",
+            "Todo lo que la mente del hombre puede concebir y creer, lo puede lograr.",
+            "No importa si te derriban, sino si te levantas.",
+            "La mayor gloria de la vida no reside en no caer nunca, sino en levantarnos cada vez que caemos.",
+            "Ve con confianza en la dirección de tus sueños. Vive la vida que has imaginado.",
+            "La vida es como montar en bicicleta. Para mantener el equilibrio, debes seguir moviéndote.",
+            "La mente lo es todo. En lo que piensas te conviertes.",
+            "Lo que obtienes al lograr tus metas no es tan importante como en lo que te conviertes al lograrlas.",
+            "Con el nuevo día viene nueva fuerza y nuevos pensamientos.",
+            "Siempre parece imposible hasta que se hace.",
+            "No te rindas, cada día es una nueva oportunidad.",
+            "La perseverancia es la clave del éxito.",
+            "El optimismo es la fe que conduce al logro; nada puede realizarse sin esperanza.",
+            "El sol mismo es débil cuando se levanta por primera vez, y reúne fuerza y coraje a medida que avanza el día.",
+            "La única manera de hacer un gran trabajo es amar lo que haces.",
+            "Success is not the key to happiness. Happiness is the key to success.",
+            "La felicidad no es la ausencia de problemas, es la habilidad de lidiar con ellos.",
+            "The harder you work for something, the greater you'll feel when you achieve it.",
+            "Tu actitud, no tu aptitud, determinará tu altitud.",
+            "Challenges are what make life interesting, overcoming them is what makes life meaningful.",
+            "Los obstáculos son esas cosas atemorizantes que ves cuando apartas los ojos de tu meta.",
+            "If you want to live a happy life, tie it to a goal, not to people or things.",
+            "La disciplina es el puente entre metas y logros.",
+            "Don't count the days, make the days count.",
+            "No esperes el momento perfecto, toma el momento y hazlo perfecto.",
+            "Motivation gets you started. Habit keeps you going.",
+            "Aprende del ayer, vive para hoy, ten esperanza para mañana.",
+            "Your limitation is only your imagination.",
+            "El éxito no es definitivo, el fracaso no es fatal: lo que cuenta es el coraje para continuar.",
+            "Fall seven times, stand up eight.",
+            "El dolor que sientes hoy es la fuerza que sentirás mañana.",
+            "If opportunity doesn't knock, build a door.",
+            "No importa lo lento que vayas mientras no te detengas.",
+            "Your time is limited, so don't waste it living someone else's life.",
+            "El mejor momento para plantar un árbol fue hace 20 años. El segundo mejor momento es ahora.",
+            "Life is 10% what happens to you and 90% how you react to it.",
+            "Lo que haces hoy puede mejorar todos tus mañanas.",
+            "The only impossible journey is the one you never begin.",
+            "Los sueños no funcionan a menos que tú lo hagas.",
+            "You are the master of your destiny. You can influence, direct and control your own environment.",
+            "La determinación de hoy es el éxito de mañana.",
+            "Aim for the moon. If you miss, you may hit a star.",
+            "Cuando pienses en rendirte, piensa en por qué empezaste.",
+            "Don't be afraid to fail; be afraid not to try.",
+            "Cada día es una nueva oportunidad para cambiar tu vida.",
+            "Change your thoughts and you change your world.",
+            "Las grandes mentes discuten ideas; las mentes promedio discuten eventos; las mentes pequeñas discuten con la gente.",
+            "Tough times never last, but tough people do.",
+            "Nunca sabrás lo fuerte que eres hasta que ser fuerte sea la única opción que tengas.",
+            "If you can dream it, you can do it.",
+            "Confía en ti mismo y llegarás a un punto donde los demás no tendrán más remedio que confiar en ti.",
+            "Make each day your masterpiece.",
+            "El que quiere hacer algo encuentra un medio, el que no quiere hacer nada encuentra una excusa.",
+            "The only person you should try to be better than is the person you were yesterday.",
+            "La educación es el arma más poderosa que puedes usar para cambiar el mundo.",
+            "Do not wait to strike till the iron is hot; but make it hot by striking.",
+            "Si quieres vivir una vida feliz, átala a una meta, no a una persona u objeto.",
+            "The future depends on what you do today.",
+            "Nunca es tarde para ser quien podrías haber sido.",
+            "You have within you right now, everything you need to deal with whatever the world can throw at you.",
+            "El momento que da más miedo es siempre justo antes de empezar.",
+            "You don't have to be great to start, but you have to start to be great.",
+            "No dejes que lo que no puedes hacer interfiera con lo que puedes hacer.",
+            "A veces los obstáculos son las bendiciones de la vida.",
+            "Sometimes the obstacles are life's blessings.",
+            "A journey of a thousand miles begins with a single step.",
+            "Cada problema es una oportunidad disfrazada.",
+            "Every problem is an opportunity in disguise.",
+            "Perseverancia, no perfección.",
+            "Perseverance, not perfection.",
+            "Cada día es una nueva oportunidad para cambiar tu vida.",
+            "Every day is a new opportunity to change your life.",
+            "La confianza viene de la disciplina y el entrenamiento.",
+            "Confidence comes from discipline and training.",
+            "No te compares con los demás, compárate con quien eras ayer.",
+            "Don't compare yourself with others, compare yourself with who you were yesterday.",
+            "La consistencia es más poderosa que el talento.",
+            "Consistency is more powerful than talent.",
+            "No te preocupes por los fracasos, preocúpate por las posibilidades que pierdes cuando ni siquiera lo intentas.",
+            "Don't worry about failures, worry about the chances you miss when you don't even try.",
+            "Si te caes siete veces, levántate ocho.",
+            "If you fall seven times, stand up eight.",
+            "El optimismo es la fe que conduce al logro.",
+            "Optimism is the faith that leads to achievement.",
+            "Tus acciones hablan más fuerte que tus palabras.",
+            "Your actions speak louder than your words.",
+            "El éxito no es final, el fracaso no es fatal: es el coraje para continuar lo que cuenta.",
+            "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+            "Lo que planteas hoy, florecerá mañana.",
+            "What you plant today, will bloom tomorrow.",
+            "Sueña como si fueras a vivir para siempre, vive como si fueras a morir hoy.",
+            "Dream as if you'll live forever, live as if you'll die today."
+        ];
+
+        // Remove duplicates from the quotes array
+        const uniqueQuotes = [...new Set(quotes)];
+
+        // Explicitly define backgrounds instead of using CSS variables
+        const backgrounds = [
+            "linear-gradient(135deg, #ff9a9e, #fad0c4)",
+            "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+            "linear-gradient(135deg, #fbc2eb, #a6c1ee)",
+            "linear-gradient(135deg, #667eea, #764ba2)",
+            "linear-gradient(135deg, #0ba360, #3cba92)",
+            "linear-gradient(135deg, #ff758c, #ff7eb3)",
+            "linear-gradient(135deg, #6a11cb, #2575fc)",
+            "linear-gradient(135deg, #f46b45, #eea849)",
+            "linear-gradient(135deg, #00c6fb, #005bea)",
+            "linear-gradient(135deg, #434343, #000000)",
+            "linear-gradient(135deg, #8e2de2, #4a00e0)",
+            "linear-gradient(135deg, #20002c, #cbb4d4)",
+            "#2c3e50",
+            "#778beb",
+            "#e056fd",
+            "#6dd5fa",
+            "#2980b9",
+            "#43cea2",
+            "#185a9d",
+            "#3d4e81",
+            "#5f27cd",
+            "#341f97",
+            "#222f3e",
+            "#304352",
+            "#8e44ad",
+            "#16a085",
+            "#27ae60",
+            "#d35400",
+            "#c0392b",
+            "#7f8c8d",
+            "linear-gradient(135deg, #FF6B6B, #556270)",
+            "linear-gradient(135deg, #2193b0, #6dd5ed)",
+            "linear-gradient(135deg, #8A2387, #E94057, #F27121)",
+            "linear-gradient(135deg, #16BFFD, #CB3066)",
+            "linear-gradient(135deg, #ee9ca7, #ffdde1)",
+            "linear-gradient(135deg, #396afc, #2948ff)",
+            "linear-gradient(135deg, #11998e, #38ef7d)",
+            "linear-gradient(135deg, #108dc7, #ef8e38)",
+            "linear-gradient(135deg, #FC5C7D, #6A82FB)",
+            "#6c5ce7",
+            "#fd79a8",
+            "#00b894",
+            "#fdcb6e",
+            "#0984e3",
+            "#55efc4",
+            "#81ecec",
+            "#74b9ff",
+            "#a29bfe",
+            "#636e72"
+        ];
+
+        // Explicitly define fonts
+        const fonts = [
+            "'Roboto', sans-serif",
+            "'Open Sans', sans-serif",
+            "'Lobster', cursive",
+            "'Montserrat', sans-serif",
+            "'Pacifico', cursive",
+            "'Dancing Script', cursive",
+            "'Indie Flower', cursive",
+            "'Satisfy', cursive",
+            "'Shadows Into Light', cursive",
+            "'Quicksand', sans-serif",
+            "'Merriweather', serif",
+            "'Archivo', sans-serif",
+            "'Josefin Sans', sans-serif",
+            "'Comfortaa', cursive",
+            "'Playfair Display', serif",
+            "'Source Sans Pro', sans-serif",
+            "'Caveat', cursive",
+            "'Abril Fatface', cursive",
+            "'Oswald', sans-serif",
+            "'Raleway', sans-serif",
+            "'Permanent Marker', cursive",
+            "'Amatic SC', cursive",
+            "'Crimson Text', serif",
+            "'Lato', sans-serif",
+            "'Ubuntu', sans-serif",
+            "'PT Sans', sans-serif",
+            "'PT Serif', serif",
+            "'Nunito', sans-serif",
+            "'Fira Sans', sans-serif",
+            "'Titillium Web', sans-serif",
+            "'Rubik', sans-serif"
+        ];
+
+        const colors = [
+            '#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c', 
+            '#9AECDB', '#F9E79F', '#D7BDE2', '#A3E4D7', '#FAD7A0', '#D4EFDF', 
+            '#ffdd59', '#feca57', '#ff6b6b', '#48dbfb', '#1dd1a1', '#5f27cd',
+            '#576574', '#54a0ff', '#00d2d3', '#ff9ff3', '#00b894', '#c8d6e5',
+            '#222f3e', '#5758BB', '#6F1E51', '#833471', '#6D214F', '#FD7272',
+            '#6c5ce7', '#fd79a8', '#00b894', '#fdcb6e', '#0984e3', 
+            '#55efc4', '#81ecec', '#74b9ff', '#a29bfe', '#ffeaa7', 
+            '#fab1a0', '#636e72', '#b2bec3', '#dfe6e9', '#2d3436', 
+            '#ff7675', '#ff6b6b', '#badc58', '#f1d573', '#45aaf2', 
+            '#4b7bec', '#2ed573', '#1e90ff', '#ff6348', '#ff9f43'
+        ];
+        
+        // Select random background
+        let randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+        
+        // Select random font
+        let randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+        
+        // Apply font and background
+        document.body.style.background = randomBackground;
+        document.body.style.fontFamily = randomFont;
+
+        // Function to determine if a color is light
+        function isLightColor(color) {
+            // Extract RGB components
+            let r, g, b;
+            
+            if (color.includes('linear-gradient')) {
+                // For gradients, assume they're dark enough
+                return false;
+            } else if (color.startsWith('#')) {
+                // For hex colors
+                color = color.replace(/^#/, '');
+                if (color.length === 3) {
+                    color = color[0] + color[0] + color[1] + color[1] + color[2] + color[2];
+                }
+                
+                r = parseInt(color.substr(0, 2), 16);
+                g = parseInt(color.substr(2, 2), 16);
+                b = parseInt(color.substr(4, 2), 16);
+            } else {
+                // Default to dark
+                return false;
+            }
+            
+            // Calculate perceived brightness
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            
+            // Return true if it's a light color
+            return brightness > 128;
+        }
+
+        // Choose text color based on background
+        let textColor;
+        if (isLightColor(randomBackground)) {
+            textColor = '#222222';
+        } else {
+            textColor = '#ffffff';
+        }
+
+        // Display random quote
+        const quoteContainer = document.getElementById('quote');
+        const randomQuote = uniqueQuotes[Math.floor(Math.random() * uniqueQuotes.length)];
+        quoteContainer.style.color = textColor;
+        quoteContainer.textContent = randomQuote;
+    </script>
+</body>
+</html>
